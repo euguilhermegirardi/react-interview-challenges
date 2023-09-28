@@ -1,6 +1,7 @@
 // Sum of two numbers and disabled button
 
 import { useState } from 'react';
+import './styles.css';
 
 const SumOfTwoNumbers = () => {
   const [firstInput, setFirstInput] = useState<number>(0);
@@ -14,20 +15,23 @@ const SumOfTwoNumbers = () => {
   };
 
   return (
-    <div>
+    <div className='two-numbers-content'>
       <input
-        type="number"
+        className='numbers-input'
+        type='number'
         value={firstInput}
         onChange={(event) => setFirstInput(+event.target.value)}
       />
 
       <input
-        type="number"
+        className='numbers-input'
+        type='number'
         value={secondInput}
         onChange={(event) => setSecondInput(+event.target.value)}
       />
 
       <button
+        className='numbers-btn'
         disabled={(!firstInput || !secondInput)}
         onClick={handleAddNumbers}
       >

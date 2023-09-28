@@ -1,7 +1,7 @@
 // Explain what is a three structure in code.
 
 import { useState } from 'react';
-import './threeLogic.css';
+import './styles.css';
 
 type FileProps = {
   name: string;

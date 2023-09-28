@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './navbar.css';
-import SecondOne from '../../pages/second-challenge/second';
-import ThreeLogic from '../../pages/three-logic-challenge/threeLogic';
+import ThreeLogic from '../../challenges/1-three-logic/threeLogic';
+import SecondOne from '../../challenges/2-sum-of-two-numbers/sum-of-two-numbers';
 import AppRoutes from '../../routes/AppRoutes';
 import ApplicationRoutes from '../../utils/navigation/applicationRoutes';
 
@@ -37,7 +37,7 @@ const NavBar = () => {
             onClick={() => navigate(route.path)}
             style={{ margin: '5px' }}
           >
-            {route.children}
+            {route.name}
           </button>
         ))}
       </div>

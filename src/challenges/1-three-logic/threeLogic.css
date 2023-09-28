@@ -1,0 +1,12 @@
+.three-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+.is-expanded {
+  list-style: none;
+  padding: 0;
+}

@@ -8,34 +8,46 @@ type FileProps = {
   children?: FileProps[]
 };
 
-const files = {
-  children: [
-    {
-      name: 'node_modules',
-      children: [
-        {
-          name: 'some_library',
-          children: [
-            {
-              name: 'some_library',
-              children: [
-                {
-                  name: 'some_library',
-                }
-              ]
-            },
-          ]
-        }
-      ]
-    },
-    {
-      name: 'package.json'
-    },
-    {
-      name: 'vite.config.ts'
-    },
-  ]
-};
+const files = [
+  {
+    name: 'node_modules',
+    children: [
+      {
+        name: '.bin',
+        children: [
+          {
+            name: 'acorn',
+          },
+        ]
+      },
+      {
+        name: '.vite',
+        children: [
+          {
+            name: 'deps',
+            children: [
+              {
+                name: '_metadata.json',
+              },
+              {
+                name: 'chunck-MYQCF5U.js',
+              },
+              {
+                name: 'package.json',
+              }
+            ]
+          },
+        ]
+      },
+    ]
+  },
+  {
+    name: 'package.json'
+  },
+  {
+    name: 'vite.config.ts'
+  },
+];
 
 const File = ({ file, depth }: { file: FileProps, depth: number }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -51,9 +63,9 @@ const File = ({ file, depth }: { file: FileProps, depth: number }) => {
       )}
 
       {isExpanded && (
-        <ul className='is-expanded' style={{ paddingLeft: `${depth * 10}px` }}>
+        <ul className='is-expanded'>
           {file.children?.map((files) => (
-            <li key={files.name}>
+            <li key={files.name} style={{ paddingLeft: `${depth * 30}px` }}>
               <File file={files} depth={depth + 1} />
             </li>
           ))}
@@ -66,7 +78,7 @@ const File = ({ file, depth }: { file: FileProps, depth: number }) => {
 const ThreeLogic = () => {
   return (
     <ul className='three-content'>
-      {files.children.map((eachFile) => (
+      {files.map((eachFile) => (
         <li key={eachFile.name}>
           <File file={eachFile} depth={1} />
         </li>

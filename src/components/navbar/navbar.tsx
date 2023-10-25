@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './navbar.css';
 import ThreeLogic from '../../challenges/1-three-logic/threeLogic';
 import SecondOne from '../../challenges/2-sum-of-two-numbers/sum-of-two-numbers';
+import Navbar from '../../challenges/3-navbar/navbar';
 import AppRoutes from '../../routes/AppRoutes';
 import ApplicationRoutes from '../../utils/navigation/applicationRoutes';
 
@@ -22,7 +23,12 @@ const navBarRoutes: Route[] = [
     name: 'second-one',
     path: ApplicationRoutes.secondOne,
     children: <SecondOne />
-  }
+  },
+  {
+    name: 'navbar',
+    path: ApplicationRoutes.navbar,
+    children: <Navbar />
+  },
 ];
 
 const NavBar = () => {

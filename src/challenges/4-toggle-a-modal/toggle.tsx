@@ -1,14 +1,34 @@
-import { useState } from 'react';
-import './styles.css';
-import Email from '../../assets/email.png';
-import Logo from '../../assets/one-piece.png';
-import Profile from '../../assets/profile.png';
-import Samurai from '../../assets/samurai.png';
+import { ReactNode, useState } from 'react'
+import './styles.css'
+import Email from '../../assets/email.png'
+import Logo from '../../assets/one-piece.png'
+import Profile from '../../assets/profile.png'
+import Samurai from '../../assets/samurai.png'
 
 const ToggleAModal = () => {
-  const [toggleModal, setToggleModal] = useState(false);
+  const [toggleModal, setToggleModal] = useState(false)
 
-  const handleToggleModal = () => { setToggleModal(!toggleModal) };
+  const handleToggleModal = () => { setToggleModal(!toggleModal) }
+
+  function Modal({
+    children,
+    shown,
+    close,
+  }: {
+    children: ReactNode,
+    shown: boolean,
+    close: () => void,
+  }) {
+    return shown ? (
+      <div
+        className="modal-backdrop"
+        onClick={() => close()}
+      >
+
+        {children}
+      </div>
+    ) : null
+  }
 
   return (
     <>
@@ -50,10 +70,12 @@ const ToggleAModal = () => {
         >
           <img src={Email} alt="email.png" />
         </button>
-
       </main>
 
-      {toggleModal ? (
+      <Modal
+        shown={toggleModal}
+        close={() => setToggleModal(false)}
+      >
         <div className='toggle__modal'>
           <h3 className='toggle__modal-title'>Contact us via email!</h3>
           <p className='toggle__modal-subtitle'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti cum non illum facilis quaerat unde rerum, similique ducimus. Nemo, deleniti eum inventore expedita repellendus illum.</p>
@@ -63,9 +85,9 @@ const ToggleAModal = () => {
             <button onClick={() => alert('should open your email :)')}>Open email</button>
           </div>
         </div>
-      ) : null}
+      </Modal>
     </>
-  );
-};
+  )
+}
 
-export default ToggleAModal;
+export default ToggleAModal

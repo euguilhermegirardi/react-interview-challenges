@@ -3,5 +3,6 @@ export default class ApplicationRoutes {
   static secondOne = '/second-one';
   static navbar = '/navbar';
   static toggle = '/toggle';
+  static memoryCard = '/memory-card';
   static badRoute = '*';
 }

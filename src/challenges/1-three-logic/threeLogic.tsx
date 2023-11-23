@@ -1,12 +1,10 @@
-// Explain what is a three structure in code.
-
-import { useState } from 'react';
-import './styles.css';
+import { useState } from 'react'
+import './styles.css'
 
 type FileProps = {
-  name: string;
+  name: string
   children?: FileProps[]
-};
+}
 
 const files = [
   {
@@ -47,10 +45,10 @@ const files = [
   {
     name: 'vite.config.ts'
   },
-];
+]
 
 const File = ({ file, depth }: { file: FileProps, depth: number }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false)
 
   return (
     <div key={file.name} style={{ padding: '10px' }}>
@@ -72,8 +70,8 @@ const File = ({ file, depth }: { file: FileProps, depth: number }) => {
         </ul>
       )}
     </div>
-  );
-};
+  )
+}
 
 const ThreeLogic = () => {
   return (
@@ -84,7 +82,7 @@ const ThreeLogic = () => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default ThreeLogic;
+export default ThreeLogic

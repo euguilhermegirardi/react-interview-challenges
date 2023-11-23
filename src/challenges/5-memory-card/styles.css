@@ -1,0 +1,33 @@
+.memory-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.memory-content__row {
+  display: flex;
+  gap: 10px;
+}
+
+.memory-content__card {
+  padding: 10px;
+  background: white;
+  color: black;
+  width: 60px;
+  height: 70px;
+}
+
+.memory-content__card:hover {
+  background: #aeaeae;
+}
+
+.memory-content__card.revealed {
+  cursor: no-drop;
+}
+
+.memory-content__card.revealed:hover {
+  background: #aeaeae;
+}

@@ -1,17 +1,18 @@
-import { ReactElement } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './navbar.css';
-import ThreeLogic from '../../challenges/1-three-logic/threeLogic';
-import SecondOne from '../../challenges/2-sum-of-two-numbers/sum-of-two-numbers';
-import Navbar from '../../challenges/3-navbar/navbar';
-import ToggleAModal from '../../challenges/4-toggle-a-modal/toggle';
-import AppRoutes from '../../routes/AppRoutes';
-import ApplicationRoutes from '../../utils/navigation/applicationRoutes';
+import { ReactElement } from 'react'
+import { useNavigate } from 'react-router-dom'
+import './navbar.css'
+import ThreeLogic from '../../challenges/1-three-logic/threeLogic'
+import SecondOne from '../../challenges/2-sum-of-two-numbers/sum-of-two-numbers'
+import Navbar from '../../challenges/3-navbar/navbar'
+import ToggleAModal from '../../challenges/4-toggle-a-modal/toggle'
+import AppRoutes from '../../routes/AppRoutes'
+import ApplicationRoutes from '../../utils/navigation/applicationRoutes'
+import { MemoryCard } from '../../challenges/5-memory-card'
 
 type Route = {
-  name: string;
-  path: string;
-  children: ReactElement;
+  name: string
+  path: string
+  children: ReactElement
 }
 
 const navBarRoutes: Route[] = [
@@ -35,10 +36,15 @@ const navBarRoutes: Route[] = [
     path: ApplicationRoutes.toggle,
     children: <ToggleAModal />
   },
-];
+  {
+    name: 'memory-card',
+    path: ApplicationRoutes.memoryCard,
+    children: <MemoryCard />
+  },
+]
 
 const NavBar = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <div className="content">
@@ -57,6 +63,6 @@ const NavBar = () => {
       <AppRoutes />
     </div>
   )
-};
+}
 
-export default NavBar;
+export default NavBar

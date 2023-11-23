@@ -1,9 +1,10 @@
-import { Route, Routes } from 'react-router-dom';
-import ThreeLogic from '../challenges/1-three-logic/threeLogic';
-import SecondOne from '../challenges/2-sum-of-two-numbers/sum-of-two-numbers';
-import Navbar from '../challenges/3-navbar/navbar';
-import ToggleAModal from '../challenges/4-toggle-a-modal/toggle';
-import ApplicationRoutes from '../utils/navigation/applicationRoutes';
+import { Route, Routes } from 'react-router-dom'
+import ThreeLogic from '../challenges/1-three-logic/threeLogic'
+import SecondOne from '../challenges/2-sum-of-two-numbers/sum-of-two-numbers'
+import Navbar from '../challenges/3-navbar/navbar'
+import ToggleAModal from '../challenges/4-toggle-a-modal/toggle'
+import ApplicationRoutes from '../utils/navigation/applicationRoutes'
+import { MemoryCard } from '../challenges/5-memory-card'
 
 const AppRoutes = () => {
   return (
@@ -27,8 +28,13 @@ const AppRoutes = () => {
         path={ApplicationRoutes.toggle}
         element={<ToggleAModal />}
       />
+
+      <Route
+        path={ApplicationRoutes.memoryCard}
+        element={<MemoryCard />}
+      />
     </Routes>
   )
-};
+}
 
-export default AppRoutes;
+export default AppRoutes

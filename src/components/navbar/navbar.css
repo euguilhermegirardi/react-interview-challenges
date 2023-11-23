@@ -7,8 +7,8 @@
   flex-direction: column;
   align-items: flex-start;
   height: 100vh;
-  min-width: 15rem;
-  max-width: 15rem;
+  min-width: 220px;
+  max-width: 220px;
   background-color: #555;
   padding: 10px;
 }

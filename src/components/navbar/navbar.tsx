@@ -4,6 +4,7 @@ import './navbar.css';
 import ThreeLogic from '../../challenges/1-three-logic/threeLogic';
 import SecondOne from '../../challenges/2-sum-of-two-numbers/sum-of-two-numbers';
 import Navbar from '../../challenges/3-navbar/navbar';
+import ToggleAModal from '../../challenges/4-toggle-a-modal/toggle';
 import AppRoutes from '../../routes/AppRoutes';
 import ApplicationRoutes from '../../utils/navigation/applicationRoutes';
 
@@ -28,6 +29,11 @@ const navBarRoutes: Route[] = [
     name: 'navbar',
     path: ApplicationRoutes.navbar,
     children: <Navbar />
+  },
+  {
+    name: 'toggle',
+    path: ApplicationRoutes.toggle,
+    children: <ToggleAModal />
   },
 ];
 

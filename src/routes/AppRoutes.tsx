@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import ThreeLogic from '../challenges/1-three-logic/threeLogic';
 import SecondOne from '../challenges/2-sum-of-two-numbers/sum-of-two-numbers';
 import Navbar from '../challenges/3-navbar/navbar';
+import ToggleAModal from '../challenges/4-toggle-a-modal/toggle';
 import ApplicationRoutes from '../utils/navigation/applicationRoutes';
 
 const AppRoutes = () => {
@@ -20,6 +21,11 @@ const AppRoutes = () => {
       <Route
         path={ApplicationRoutes.navbar}
         element={<Navbar />}
+      />
+
+      <Route
+        path={ApplicationRoutes.toggle}
+        element={<ToggleAModal />}
       />
     </Routes>
   )

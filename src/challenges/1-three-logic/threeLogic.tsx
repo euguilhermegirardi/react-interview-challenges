@@ -51,7 +51,7 @@ const File = ({ file, depth }: { file: FileProps, depth: number }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <div key={file.name} style={{ padding: '10px' }}>
+    <div style={{ padding: '10px' }}>
       {file.children ? (
         <button onClick={() => setIsExpanded(!isExpanded)}>
           {isExpanded ? '-' : '+'} {file.name}
@@ -60,7 +60,7 @@ const File = ({ file, depth }: { file: FileProps, depth: number }) => {
         <div>{file.name}</div>
       )}
 
-      {isExpanded && (
+      {isExpanded ? (
         <ul className='is-expanded'>
           {file.children?.map((files) => (
             <li key={files.name} style={{ paddingLeft: `${depth * 30}px` }}>
@@ -68,7 +68,7 @@ const File = ({ file, depth }: { file: FileProps, depth: number }) => {
             </li>
           ))}
         </ul>
-      )}
+      ) : null}
     </div>
   )
 }

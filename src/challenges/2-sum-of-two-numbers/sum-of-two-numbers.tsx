@@ -1,5 +1,3 @@
-// Sum of two numbers and disabled button
-
 import { useState } from 'react';
 import './styles.css';
 

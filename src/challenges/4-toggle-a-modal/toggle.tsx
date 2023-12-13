@@ -1,33 +1,45 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useRef, useEffect } from 'react'
 import './styles.css'
 import Email from '../../assets/email.png'
 import Logo from '../../assets/one-piece.png'
 import Profile from '../../assets/profile.png'
 import Samurai from '../../assets/samurai.png'
 
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+}
+
 const ToggleAModal = () => {
   const [toggleModal, setToggleModal] = useState(false)
 
   const handleToggleModal = () => { setToggleModal(!toggleModal) }
 
-  function Modal({
-    children,
-    shown,
-    close,
-  }: {
-    children: ReactNode,
-    shown: boolean,
-    close: () => void,
-  }) {
-    return shown ? (
-      <div
-        className="modal-backdrop"
-        onClick={() => close()}
-      >
+  const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+    const modalRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+          onClose();
+        }
+      };
+
+      if (isOpen) {
+        document.addEventListener('mousedown', handleClickOutside);
+      }
+
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [isOpen, onClose]);
+
+    return (
+      <div className={`modal ${isOpen ? 'open' : 'closed'}`} ref={modalRef}>
         {children}
       </div>
-    ) : null
+    );
   }
 
   return (
@@ -66,6 +78,7 @@ const ToggleAModal = () => {
 
         <button
           className='toggle__button'
+          disabled={toggleModal}
           onClick={handleToggleModal}
         >
           <img src={Email} alt="email.png" />
@@ -73,8 +86,8 @@ const ToggleAModal = () => {
       </main>
 
       <Modal
-        shown={toggleModal}
-        close={() => setToggleModal(false)}
+        isOpen={toggleModal}
+        onClose={() => setToggleModal(false)}
       >
         <div className='toggle__modal'>
           <h3 className='toggle__modal-title'>Contact us via email!</h3>

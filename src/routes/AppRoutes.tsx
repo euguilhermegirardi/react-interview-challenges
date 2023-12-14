@@ -5,6 +5,7 @@ import Navbar from '../challenges/3-navbar/navbar'
 import ToggleAModal from '../challenges/4-toggle-a-modal/toggle'
 import ApplicationRoutes from '../utils/navigation/applicationRoutes'
 import { MemoryCard } from '../challenges/5-memory-card'
+import { WackAMole } from '../challenges/6-wack-a-mole'
 
 const AppRoutes = () => {
   return (
@@ -32,6 +33,11 @@ const AppRoutes = () => {
       <Route
         path={ApplicationRoutes.memoryCard}
         element={<MemoryCard />}
+      />
+
+      <Route
+        path={ApplicationRoutes.wackAMole}
+        element={<WackAMole />}
       />
     </Routes>
   )

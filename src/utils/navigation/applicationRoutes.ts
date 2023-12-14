@@ -4,5 +4,6 @@ export default class ApplicationRoutes {
   static navbar = '/navbar';
   static toggle = '/toggle';
   static memoryCard = '/memory-card';
+  static wackAMole = '/wack-a-mole';
   static badRoute = '*';
 }

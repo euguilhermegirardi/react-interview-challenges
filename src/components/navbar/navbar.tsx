@@ -8,6 +8,7 @@ import ToggleAModal from '../../challenges/4-toggle-a-modal/toggle'
 import AppRoutes from '../../routes/AppRoutes'
 import ApplicationRoutes from '../../utils/navigation/applicationRoutes'
 import { MemoryCard } from '../../challenges/5-memory-card'
+import { WackAMole } from '../../challenges/6-wack-a-mole'
 
 type Route = {
   name: string
@@ -40,6 +41,11 @@ const navBarRoutes: Route[] = [
     name: 'memory-card',
     path: ApplicationRoutes.memoryCard,
     children: <MemoryCard />
+  },
+  {
+    name: 'wack-a-mole',
+    path: ApplicationRoutes.wackAMole,
+    children: <WackAMole />
   },
 ]
 

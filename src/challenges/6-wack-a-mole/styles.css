@@ -1,0 +1,14 @@
+.wack-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.wack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+.wack-score {
+  font-size: 2rem;
+}

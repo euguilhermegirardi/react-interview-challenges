@@ -13,9 +13,11 @@ export function MemoryCard() {
     [2, 2]
   ]
 
-  const [revealedGrid, setRevealedGrid] = useState(new Array(grid.length).fill("").map(() =>
-    new Array(grid[0].length).fill(false)
-  ))
+  const [revealedGrid, setRevealedGrid] = useState(
+    new Array(grid.length).fill("").map(() =>
+      new Array(grid[0].length).fill(false)
+    )
+  )
 
   const [previousCard, setPreviousCard] = useState<TPreviousCard | undefined>()
 
@@ -24,11 +26,14 @@ export function MemoryCard() {
 
     const clickedCard = grid[rowIndex][columnIndex]
     const newRevealedGrid = [...revealedGrid]
+
     newRevealedGrid[rowIndex][columnIndex] = true
     setRevealedGrid(newRevealedGrid)
 
+
     if (previousCard) {
       const previousClickedCard = grid[previousCard.row][previousCard.column]
+      console.log(previousClickedCard)
 
       if (previousClickedCard !== clickedCard) {
         setTimeout(() => {
@@ -38,6 +43,7 @@ export function MemoryCard() {
         }, 1000)
       } else {
         const hasWon = revealedGrid.flat().every(isRevealed => isRevealed)
+
         if (hasWon) {
           setTimeout(() => {
             alert('Uhul! You have won!')
@@ -54,6 +60,8 @@ export function MemoryCard() {
         column: columnIndex
       })
     }
+
+    console.log(newRevealedGrid)
   }
 
   return (

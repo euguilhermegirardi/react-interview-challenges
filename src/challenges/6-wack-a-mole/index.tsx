@@ -15,7 +15,7 @@ export function WackAMole() {
     })
   }
 
-  function wackMole(index: number) {
+  function handleClick(index: number) {
     if(!moles[index]) return
     handleMoleVisibility(index, false)
     setScore((score) => score + 1)
@@ -44,7 +44,7 @@ export function WackAMole() {
             key={idx}
             src={isMole ? mole : hole}
             alt="wackAMole"
-            onClick={() => wackMole(idx)}
+            onClick={() => handleClick(idx)}
           />
         ))}
       </div>
